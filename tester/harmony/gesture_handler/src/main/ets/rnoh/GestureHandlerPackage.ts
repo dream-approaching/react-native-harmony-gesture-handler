@@ -1,9 +1,9 @@
-import {RNPackage, TurboModulesFactory} from "@rnoh/react-native-openharmony/ts";
-import type {TurboModule, TurboModuleContext} from "@rnoh/react-native-openharmony/ts";
+import {RNPackage, UITurboModuleFactory} from "@rnoh/react-native-openharmony/ts";
+import type {UITurboModule, UITurboModuleContext} from "@rnoh/react-native-openharmony/ts";
 import {RNGestureHandlerModule} from './RNGestureHandlerModule';
 
-class GestureHandlerTurboModulesFactory extends TurboModulesFactory {
-  createTurboModule(name: string): TurboModule | null {
+class GestureHandlerTurboModuleFactory extends UITurboModuleFactory {
+  createTurboModule(name: string): UITurboModule | null {
     if (name === RNGestureHandlerModule.NAME) {
       return new RNGestureHandlerModule(this.ctx);
     }
@@ -15,8 +15,11 @@ class GestureHandlerTurboModulesFactory extends TurboModulesFactory {
   }
 }
 
+/**
+ * @deprecated: Use the package class exported from ../RNOHPackage.ets (2024-10-10)
+ */
 export class GestureHandlerPackage extends RNPackage {
-  createTurboModulesFactory(ctx: TurboModuleContext): TurboModulesFactory {
-    return new GestureHandlerTurboModulesFactory(ctx);
+  createUITurboModuleFactory(ctx: UITurboModuleContext): UITurboModuleFactory {
+    return new GestureHandlerTurboModuleFactory(ctx);
   }
 }

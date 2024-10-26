@@ -1,15 +1,12 @@
 #pragma once
-#include "RNOH/Package.h"
+#include "RnohReactNativeHarmonyGestureHandlerPackage.h"
 
 namespace rnoh {
-    class GestureHandlerPackage : public Package {
-    public:
-        GestureHandlerPackage(Package::Context ctx) : Package(ctx) {}
-
-        EventEmitRequestHandlers createEventEmitRequestHandlers();
-
-        ComponentInstanceFactoryDelegate::Shared createComponentInstanceFactoryDelegate();
-
-        std::vector<ArkTSMessageHandler::Shared> createArkTSMessageHandlers() override;
-    };
+/**
+ * @deprecated: Use RnohReactNativeHarmonyGestureHandlerPackage instead (2024-10-10)
+ */
+class GestureHandlerPackage : public RnohReactNativeHarmonyGestureHandlerPackage {
+    using Super = RnohReactNativeHarmonyGestureHandlerPackage;
+    using Super::Super;
+};
 } // namespace rnoh
